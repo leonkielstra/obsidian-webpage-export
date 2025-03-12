@@ -967,7 +967,7 @@ export namespace _MarkdownRendererInternal {
 		if (!canvasEl)
 		{
 			console.log(contentEl.innerHTML);
-			return failRender(view.file, "Failed to render canvas! Canvas element not found!");	
+			return failRender(view.file, "Failed to render canvas! Canvas element not found!");
 		}
 
 		const edgeContainer = canvasEl.createEl("svg", { cls: "canvas-edges" });
@@ -1165,15 +1165,21 @@ export namespace _MarkdownRendererInternal {
 			element.remove();
 		});
 
-		// move frontmatter before markdown-preview-sizer
+		// move frontmatter to end of markdown-preview-sizer
 		const frontmatter = html.querySelector(".frontmatter");
 		if (frontmatter) {
-			const frontmatterParent = frontmatter.parentElement;
+			const details : HTMLElement = html.createEl("details");
+			const summary : HTMLElement = html.createEl("summary")
+			summary.innerHTML = "Details";
+			details.appendChild(summary);
+			details.appendChild(frontmatter);
+
 			const sizer = html.querySelector(".markdown-preview-sizer");
 			if (sizer) {
-				sizer.before(frontmatter);
+				sizer.appendChild(details);
 			}
-			frontmatterParent?.remove();
+
+			frontmatter.setAttribute("style", "display: block;");
 		}
 
 		// add lazy loading to iframe elements
@@ -1577,4 +1583,3 @@ export namespace ExportLog {
 		return _MarkdownRendererInternal.checkCancelled();
 	}
 }
-
