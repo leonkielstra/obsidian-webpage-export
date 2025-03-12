@@ -106,6 +106,7 @@ body.show-inline-title .page-title {
 	font-family: var(--inline-title-font);
 	letter-spacing: -0.015em;
 	color: var(--inline-title-color);
+	margin-top: 16px;
 }
 
 h1 li {
