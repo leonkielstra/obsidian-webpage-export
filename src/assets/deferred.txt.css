@@ -20,6 +20,7 @@ body
 .sidebar {
     height: 100%;
     font-size: 14px;
+    z-index: 10;
     min-width: calc(var(--sidebar-width) + var(--divider-width-hover));
     max-width: calc(var(--sidebar-width) + var(--divider-width-hover));
     position: relative;
