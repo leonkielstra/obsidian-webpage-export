@@ -285,7 +285,7 @@ body
 
 body #center-content>.obsidian-document>.markdown-preview-sizer
 {
-    padding-bottom: 80vh;
+    padding-top: 1.2rem;
     width: 100%;
     max-width: var(--line-width);
     flex-basis: var(--line-width);
